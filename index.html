@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>SiteFeature Demo</title>
+    <link rel="stylesheet" type="text/css" href="../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style type="text/css">
+    form br {
+        clear: left;
+    }
+    label {
+        display: block;
+        font-weight: bold;
+        margin: 0 0 2px;
+    }
+    input[type=text],
+    textarea {
+        border: 1px solid #999;
+        display: block;
+        margin: 0 0 4px;
+    }
+    textarea {
+        font-family: "Andale Mono","Courier New",monospace;
+    }
+    </style>
+    <script type="text/javascript" src="../js/mootools.js"></script>
+    <script type="text/javascript" src="SiteFeature.js"></script>
+    <script type="text/javascript">
+    window.addEvent('domready', function(){
+        create();
+    });
+
+	var create = function()
+	{
+		$('Sitefeature').setStyle('display', 'none');
+
+		if($('Sandbox'))
+		{
+			$('Sandbox').dispose();
+		}
+
+		var sandBox = $('Sitefeature').clone();
+
+		sandBox.setStyle('display', 'block').set('id', 'Sandbox').inject($('Sitefeature'), 'after');
+
+		var f = $$('form')[0];
+		f.addEvent('submit', function(e){
+			e.stop();
+			create();
+		});
+
+		new SiteFeature($('Sandbox'), {
+			autoPlay: f.getElement('input[name=autoPlay]').checked,
+			autoPlayInterval: f.getElement('input[name=autoPlayInterval]').get('value').toInt(),
+			fxDuration: f.getElement('input[name=fxDuration]').get('value').toInt(),
+			fxTransition: 'sine:out',
+			navigationOrientation: f.getElement('input[name=navigationOrientation]:checked').get('value'),
+			overlayOpacity: f.getElement('input[name=overlayOpacity]').get('value').toFloat().limit(0,1),
+            pauseOnMouseOver: f.getElement('input[name=pauseOnMouseOver]').checked,
+            showLayerOnMouseOverOnly: f.getElement('input[name=showLayerOnMouseOverOnly]').checked,
+			trigger: f.getElement('input[name=trigger]:checked').get('value')
+		});
+
+        var options = $H();
+        if(f.getElement('input[name=autoPlay]'))
+        {
+            options.include('autoPlay', true);
+        }
+        options.include('autoPlayInterval', f.getElement('input[name=autoPlayInterval]').get('value').toInt());
+        options.include('fxDuration', f.getElement('input[name=fxDuration]').get('value').toInt());
+        options.include('fxTransition', 'sine:out');
+        if(f.getElement('input[name=navigationOrientation]:checked').get('value') != 'left')
+        {
+            options.include('navigationOrientation', 'right');
+        }
+        if(f.getElement('input[name=trigger]:checked').get('value') != 'click')
+        {
+            options.include('trigger', 'mouseover');
+        }
+        
+        var js = 'new SiteFeature($(\'yourDivID\'), {\n';
+        var i = 0;
+        options.each(function(value, key){
+            js+= i > 0 ? ',\n' : '';
+            js+= '\t'+key+': ';
+            js+= value > 0 || value == 'true' || value == 'false' ? value : '\''+value+'\'';
+            i++;
+        });
+        js+= '\n});';
+        /*			
+			overlayOpacity: f.getElement('input[name=overlayOpacity]').get('value').toFloat().limit(0,1),
+            pauseOnMouseOver: f.getElement('input[name=pauseOnMouseOver]').checked,
+		*/
+        $('code').set('text', js);
+	}
+    </script>
+</head>
+<body>
+	
+    <div id="Sitefeature" class="sitefeature">
+        <div>
+            <img src="img/cup-cakes.jpg" alt="http://www.sxc.hu/photo/1207890" title="Cup Cakes" />
+            <h3>&Uuml;berschrift</h3>
+            <p>
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+				Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+				Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+			</p>
+            <a href="#">Link</a>
+        </div>
+        <div>
+            <img src="img/morning-cakes.jpg" alt="http://www.sxc.hu/photo/1165225" title="Morning Cakes" />
+            <h3>&Uuml;berschrift</h3>
+            <p>
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+				Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+				Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+			</p>
+            <a href="#">Link</a>
+        </div>
+        <div>
+            <img src="img/cookies.jpg" alt="http://www.sxc.hu/photo/1120018" title="Cookies" />
+            <h3>&Uuml;berschrift</h3>
+            <p>
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+				Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+				Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+			</p>
+            <a href="#">Link</a>
+        </div>
+        <div>
+            <img src="img/milk-and-cookies.jpg" alt="http://www.sxc.hu/photo/1103790" title="Milk and Cookies" />
+            <h3>&Uuml;berschrift</h3>
+            <p>
+				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+				Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+				Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+			</p>
+            <a href="#">Link</a>
+        </div>
+    </div>
+	
+	<form action="#">
+
+		<label>AutoPlay:</label>
+		<input type="checkbox" name="autoPlay" value="1" /><br />
+    		
+        <label>PauseOnMouseOver:</label>
+		<input type="checkbox" name="pauseOnMouseOver" value="1" /><br />
+        
+		<label>AutoPlay Interval in ms:</label>
+		<input type="text" name="autoPlayInterval" maxlength="5" value="5000" /><br />
+		
+		<label>Fx Duration in ms:</label>
+		<input type="text" name="fxDuration" maxlength="4" value="500" /><br />
+		
+		<label>Alphawert Layer (0-1):</label>
+		<input type="text" name="overlayOpacity" maxlength="4" value="0.5" /><br />
+		
+		<label>Position der Navigation:</label>
+		<input type="radio" name="navigationOrientation" value="left" checked="checked" /><span>link</span>
+		<input type="radio" name="navigationOrientation" value="right" /><span>rechts</span>
+        <br />
+		
+		<label>Ausl&ouml;ser:</label>
+		<input type="radio" name="trigger" value="click" checked="checked" /><span>klick</span>
+		<input type="radio" name="trigger" value="hover" /><span>mouseover</span>
+        <br />
+        
+        <label>showLayerOnMouseOverOnly:</label>
+		<input type="checkbox" name="showLayerOnMouseOverOnly" value="1" /><br />
+
+		<input type="submit" value="update" />
+		
+	</form>
+
+    <textarea id="code" cols="40" rows="10"></textarea>
+
+</body>
+</html>

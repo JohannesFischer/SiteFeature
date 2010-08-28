@@ -32,7 +32,7 @@
 			.SiteFeature li:hover,
 			.SiteFeature li.current span,
 			.SiteFeature li:hover span {
-				background: #494949;
+				background: #282828;
 				color: #f9f9f9 !important;
 			}
 			.SiteFeature li strong,
@@ -43,6 +43,7 @@
 				display: block;
 				font-size: 14px;
 				font-weight: bold;
+				line-height: 16px;
 				padding-top: 30px;
 			}
 			.SiteFeature li span {
@@ -104,6 +105,10 @@
 			overflow: hidden;
 			padding: 0 10px;
 			width: 200px;
+			}
+			div.layer h3,
+			div.layer p {
+				color: #f9f9f9;
 			}
 			div.layer h3 {
 				background: transparent;

@@ -15,6 +15,7 @@ var SiteFeature = new Class({
         navigationOrientation: 'left',
         overlayOpacity: 0.5,
         pauseOnMouseOver: false,
+		showArrow: true,
         showLayerOnMouseOverOnly: false,
         trigger: 'click'
     }),

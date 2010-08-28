@@ -1,0 +1,133 @@
+.SiteFeature {
+	background: #494949;
+	border: 1px solid #ddd;
+	margin: 40px auto;
+	overflow: hidden;      
+	position: relative;
+	width: 660px;
+	}
+	.SiteFeature,
+	.SiteFeature ul,
+	.SiteFeature div {
+		height: 360px;
+	}
+	.SiteFeature ul {
+		list-style: none;
+		position: absolute;
+		top: 0;
+		width: 140px;
+		}
+		.SiteFeature li {
+			background: #f9f9f9;
+			border-top: 1px solid #ddd;
+			cursor: pointer;
+			height: 89px;
+			}
+			.SiteFeature li:first-of-type,
+			.SiteFeature li.first {
+				border: none;
+				height: 90px;
+			}
+			.SiteFeature li.current,
+			.SiteFeature li:hover,
+			.SiteFeature li.current span,
+			.SiteFeature li:hover span {
+				background: #494949;
+				color: #f9f9f9 !important;
+			}
+			.SiteFeature li strong,
+			.SiteFeature li span {
+				padding: 4px 0 4px 10px;
+			}
+			.SiteFeature li strong {
+				display: block;
+				font-size: 14px;
+				font-weight: bold;
+				padding-top: 30px;
+			}
+			.SiteFeature li span {
+				color: #333;
+			}
+
+	.site-feature-arrow {
+		background: url(img/site-feature-arrow.png) no-repeat left top;
+		height: 70px;
+		position: absolute;
+		width: 30px;
+		z-index: 5;
+	}
+	
+	/**
+	 * NoScript
+	 */
+
+	.SiteFeature div {
+		color: #f9f9f9;
+		float: left;
+		overflow: hidden;
+		position: relative;
+		width: 165px;
+		}
+		.SiteFeature div img {
+			width: 100%; 
+		}
+		.SiteFeature div h3 {
+			background: #34375F;
+			font-size: 16px;
+			height: 25px;
+			line-height: 25px;
+		}
+		.SiteFeature div h3,
+		.SiteFeature div p {
+			margin: 0 0 5px;
+			padding: 0 5px;
+		}
+		.SiteFeature div a {
+			color: #aaa;
+			margin: 0 5px;
+			}
+			.SiteFeature div a:hover {
+				color: #fff;
+			}
+
+	/**
+	 * Script
+	 */
+
+	.initialized div {
+		position: absolute;
+		top: 0;
+		width: 520px;
+		}
+		div.layer {
+			background: #000;
+			overflow: hidden;
+			padding: 0 10px;
+			width: 200px;
+			}
+			div.layer h3 {
+				background: transparent;
+				font-size: 20px;
+				height: auto;
+				margin: 10px 0 5px;
+			}
+			div.layer p {
+				line-height: 16px;
+			}
+			div.layer a {
+				background: #596f82;
+				-moz-border-radius: 4px;
+				color: #fff;
+				float: right;
+				margin: 0 10px 0 0;
+				padding: 6px 8px;
+				text-decoration: none;
+				}
+				div.layer a:after {
+					content: '»';
+					padding: 0 0 0 2px;
+				}
+				div.layer a:hover {
+					background: #bbb;
+					color: #444;
+				}

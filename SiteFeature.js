@@ -18,7 +18,7 @@ var SiteFeature = new Class({
         showLayerOnMouseOverOnly: false,
         trigger: 'click'
     }),
-	
+
     initialize: function(element, options)
     {
         this.element = $(element);
@@ -269,7 +269,11 @@ var SiteFeature = new Class({
 			this.element.setStyle('backgroundColor', 'rgba(10,10,10,0.5)');
 		} catch(e) {};
 
-        return this.element.getStyle('backgroundColor').contains('rgba');
+        var rgba = this.element.getStyle('backgroundColor').contains('rgba');
+
+		this.element.setStyle('backgroundColor', 'transparent');
+
+		return rgba;
     },
 
 	toggle: function(i)
